@@ -50,26 +50,27 @@ const weatherCases = {
 }
 
 function Weather({ weatherName, temp }) {
-  console.log(weatherName);
+  // console.log(weatherName);
   return (
     <LinearGradient
-      colors={weatherCases["Clear"].colors}
+      colors={weatherCases[weatherName].colors}
       style={styles.container}
     >
       <View style={styles.upper}>
-        <Ionicons color="white" size={144} name={weatherCases["Clear"].icon} />
+        <Ionicons color="white" size={144} name={weatherCases[weatherName].icon} />
         <Text style={styles.temp}>{temp}º</Text>
       </View>
       <View style={styles.lower}>
-        <Text style={styles.title}>{weatherCases["Clear"].title}</Text>
-        <Text style={styles.subtitle}>{weatherCases["Clear"].subtitle}</Text>
+        <Text style={styles.title}>{weatherCases[weatherName].title}</Text>
+        <Text style={styles.subtitle}>{weatherCases[weatherName].subtitle}</Text>
       </View>
     </LinearGradient>
   );
 }
 
 Weather.propTypes = {
-  temp: PropTypes.number.isRequired
+  temp: PropTypes.number.isRequired,
+  weatherName: PropTypes.string.isRequired
 }
 
 export default Weather;
