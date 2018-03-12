@@ -46,7 +46,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <StatusBar hidden={true} />
         { isLoaded ? (
-          <Weather weatherName={"Snow"} temp={Math.floor(temperature - 273.15)} />
+          <Weather weatherName={weather} temp={Math.floor(temperature - 273.15)} />
         ) : (
           <View style={styles.loading}>
             <Text style={styles.loadingText}>Getting the Weather</Text>
