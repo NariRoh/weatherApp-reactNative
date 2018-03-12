@@ -55,7 +55,7 @@ const weatherCases = {
   }
 }
 
-function Weather({ weatherName, temp }) {
+function Weather({ weatherName, temp, location }) {
   // console.log(weatherName);
   return (
     <LinearGradient
@@ -63,6 +63,7 @@ function Weather({ weatherName, temp }) {
       style={styles.container}
     >
       <View style={styles.upper}>
+        <Text style={styles.location}>{location}</Text>
         <MaterialCommunityIcons color="white" size={144} name={weatherCases[weatherName].icon} />
         <Text style={styles.temp}>{temp}º</Text>
       </View>
@@ -76,7 +77,8 @@ function Weather({ weatherName, temp }) {
 
 Weather.propTypes = {
   temp: PropTypes.number.isRequired,
-  weatherName: PropTypes.string.isRequired
+  weatherName: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired
 }
 
 export default Weather;
@@ -86,15 +88,21 @@ const styles = StyleSheet.create({
     flex: 1
   },
   upper: {
-    flex: 1,
+    flex: 1.3,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'flex-end'
   },
   lower: {
     flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'flex-end',
     paddingLeft: 25
+  },
+  location: {
+    fontSize: 40,
+    color: 'white',
+    backgroundColor: 'transparent',
+    marginBottom: 30
   },
   temp: {
     fontSize: 38,
